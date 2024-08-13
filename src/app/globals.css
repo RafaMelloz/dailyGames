@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    @apply bg-stone-200;
+}
+
+/* dark:bg-stone-900 */
+
+.fit-container{
+    @apply w-full max-w-7xl mx-auto px-4 xl:px-0;
+}
