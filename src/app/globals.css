@@ -4,11 +4,13 @@
 
 
 body{
-    @apply bg-stone-200;
+    @apply bg-stone-200 dark:bg-stone-900 transition-colors duration-300;
 }
-
-/* dark:bg-stone-900 */
 
 .fit-container{
     @apply w-full max-w-7xl mx-auto px-4 xl:px-0;
+}
+
+.text-primary{
+    @apply text-black dark:text-white transition-colors duration-0;
 }

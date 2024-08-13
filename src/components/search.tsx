@@ -21,9 +21,9 @@ export function Search(){
     return(
         <form onSubmit={handleSearch} className="w-full my-10">
 
-            <label htmlFor="search" className="flex justify-between items-center rounded-lg bg-stone-300 w-full p-2 border hover:border-orange-600 transition-colors duration-300">
+            <label htmlFor="search" className="flex justify-between items-center rounded-lg bg-stone-300 dark:bg-stone-800 w-full p-2 border border-stone-200 dark:border-stone-800 hover:border-orange-600 transition-colors duration-300">
                 <input
-                    className="bg-transparent focus:outline-none w-full placeholder:text-black/60"
+                    className="bg-transparent focus:outline-none w-full placeholder:text-black/60 dark:placeholder-white/60 transition-colors duration-0"
                     id="search"
                     type="text"
                     placeholder="Procurando algum jogo?"

@@ -53,7 +53,7 @@ export default async function Home() {
 
       <Search/>
 
-      <h2 className="font-semibold text-2xl mb-4">Jogos para conhecer:</h2>
+      <h2 className="font-semibold text-2xl mb-4 text-primary">Jogos para conhecer:</h2>
       <section className="flex flex-wrap justify-between items-center gap-5">
         {games.map(game => (
           <GameCard url={`/game/${game.id}`} title={game.title} image_url={game.image_url} key={game.id}/>

@@ -89,29 +89,32 @@ export default async function uniqueGame({ params }: Params) {
                 />
             </div>
 
-            <section className="fit-container">
-                <h2 className="my-4 font-semibold text-3xl">{game.title}</h2>
-                <p>{game.description}</p>
-                <h3 className="my-4 font-semibold text-xl">Plataformas disponíveis:</h3>
-                <ul className="flex gap-2 flex-wrap">
+            <section className="fit-container text-primary">
+                <h2 className="my-4 font-semibold text-3xl text-primary">{game.title}</h2>
+                <p className="text-primary">{game.description}</p>
+
+                <h3 className="my-4 font-semibold text-xl text-primary">Plataformas disponíveis:</h3>
+                <ul className="flex gap-2 flex-wrap text-primary">
                     {game.platforms.map((platform, i) => (
-                        <li key={i} className="bg-stone-300 rounded-lg py-1.5 px-2">{platform}</li>
+                        <li key={i} className="bg-stone-300 dark:bg-stone-800 rounded-lg py-1.5 px-2">{platform}</li>
                     ))}
                 </ul>
-                <h3 className="my-4 font-semibold text-xl">Categorias:</h3>
-                <ul className="flex gap-2 flex-wrap">
+
+                <h3 className="my-4 font-semibold text-xl text-primary">Categorias:</h3>
+                <ul className="flex gap-2 flex-wrap text-primary">
                     {game.categories.map((category, i) => (
-                        <li key={i} className="bg-stone-300 rounded-lg py-1.5 px-2">{category}</li>
+                        <li key={i} className="bg-stone-300 dark:bg-stone-800 rounded-lg py-1.5 px-2">{category}</li>
                     ))}
                 </ul>
-                <h3 className="my-4 font-semibold text-xl">Lançamento: <span className="text-base font-normal">{game.release}</span></h3>
-                <h3 className="my-6 font-semibold text-xl">Outros jogos que recomendamos:</h3>
+
+                <h3 className="my-4 font-semibold text-xl text-primary">Lançamento: <span className="text-base font-normal">{game.release}</span></h3>
+                <h3 className="my-6 font-semibold text-xl text-primary">Outros jogos que recomendamos:</h3>
                 
                 <Link href={`/game/${dailyGame.id}`} className="">
                     <div className="w-full max-h-72 h-72 relative">
                         <div className="w-full h-full bg-black rounded-lg" />
                         <Image
-                            className="rounded-lg w-full max-h-96 object-cover opacity-50 hover:opacity-100  duration-300"
+                            className="rounded-lg w-full max-h-96 object-cover opacity-50 hover:opacity-100 duration-300"
                             quality={100}
                             priority
                             src={dailyGame.image_url}
