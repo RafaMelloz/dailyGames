@@ -10,7 +10,7 @@ interface Card{
 
 export function GameCard({title,image_url,url}:Card){
     return(
-        <Link href={url} className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 bg-stone-300 p-2 rounded-lg">
+        <Link href={url} className="w-full sm:w-1/3 md:w-1/4 lg:w-1/5 bg-stone-300 p-2 rounded-lg hover:scale-105 transition-all duration-300">
             <div className="w-full h-56 max-h-56 relative">
                 <Image
                     src={image_url}

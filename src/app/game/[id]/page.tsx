@@ -1,5 +1,6 @@
 import { GameCard } from "@/components/gameCard";
 import { GameProps } from "@/utils/types/game";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -11,9 +12,35 @@ interface Params {
     }
 }
 
+export async function generateMetadata({params} : Params): Promise<Metadata>{
+    try {
+        const response: GameProps = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game&id=${params.id}`)
+        .then((res)=> res.json())
+        .catch(()=>{
+            return {
+                title: "DailyGames"
+            }
+        })
+
+        return{
+            title: response.title,
+            description: `${response.description.slice(0, 100)}...`,
+            openGraph:{
+                title: response.title,
+                images: [response.image_url]
+            }
+        }
+
+    } catch (error) {
+        return{
+            title: "DailyGames"
+        }
+    }
+}
+
 async function getDailyGame() {
     try {
-        const res = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game_day`, { next: { revalidate: 320 } });
+        const res = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game_day`, { cache: 'no-cache' });
         return res.json();
     } catch (error) {
         throw new Error("Erro ao buscar jogo do dia");
@@ -26,7 +53,7 @@ async function getData(id: string) {
         const res = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game&id=${id}`);
         return res.json();
     } catch (error) {
-        return null
+        throw new Error("Erro ao buscar jogo");
     }
 }
 
